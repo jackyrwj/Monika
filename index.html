@@ -4,278 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>This Waifu Does Not Exist</title>
-    <style>
-        @font-face {
-            font-family: 'LXGWWenKaiGBScreen';
-            src: url('LXGWWenKaiGBScreen.ttf') format('truetype');
-            font-display: swap;
-        }
-        body {
-            font-family: 'LXGWWenKaiGBScreen', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            width: auto;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        .flex-container {
-            display: flex;
-            gap: 20px;
-            text-align: left;
-            align-items: flex-start;
-        }
-        .image-container {
-            width: 600px;
-            height: 600px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        .text-container {
-            width: 500px;
-            height: 600px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            position: relative;
-        }
-        .text-box {
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            border: 1px solid #e0e0e0;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
-            padding: 28px 32px 24px 32px;
-            background: #fafbfc;
-            box-sizing: border-box;
-            font-family: 'LXGWWenKaiGBScreen', sans-serif;
-            font-size: 1.15em;
-            color: #222;
-            transition: box-shadow 0.2s;
-        }
-        .text-box:hover {
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13), 0 2px 8px 0 rgba(0,0,0,0.07);
-        }
-        .text-box h2,
-        .typing-title {
-            text-align: center;
-            font-size: 2em;
-            margin-top: 0;
-            margin-bottom: 0.5em;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #3a3a3a;
-        }
-        .text-box div {
-            margin-bottom: 0.5em;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 15px;
-            cursor: pointer;
-        }
-        .social-icons {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            z-index: 1000;
-            display: flex;
-            gap: 16px;
-        }
-        .social-icons a {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-        .social-icons a:hover {
-            transform: scale(1.15);
-        }
-        .music-control {
-            position: absolute;
-            top: 60px;
-            right: 40px;
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-        }
-        #mute-btn {
-            background: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-        #mute-btn:hover {
-            background: #eee;
-        }
-        .social-icons img {
-            border: none !important;
-            background: none;
-            box-shadow: none;
-        }
-        #refresh-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            margin-right: auto;
-            width: 180px;
-            height: 48px;
-            border: 1.5px solid #222;
-            border-radius: 28px;
-            background: #fff;
-            color: #222;
-            font-size: 1.18em;
-            font-weight: bold;
-            box-shadow: none;
-            transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-            gap: 10px;
-            letter-spacing: 1px;
-            outline: none;
-            cursor: pointer;
-            margin-top: 32px;
-        }
-        #refresh-btn:hover {
-            background: #f5f5f5;
-            color: #2193b0;
-            border-color: #2193b0;
-            box-shadow: none;
-            transform: none;
-        }
-        #refresh-btn svg {
-            flex-shrink: 0;
-        }
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin-top: 32px;
-        }
-        .btn-modern {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 120px;
-            height: 44px;
-            border: 1.5px solid #222;
-            border-radius: 24px;
-            background: #fff;
-            color: #222;
-            font-size: 1.08em;
-            font-weight: bold;
-            gap: 8px;
-            letter-spacing: 1px;
-            outline: none;
-            cursor: pointer;
-            transition: background 0.18s, color 0.18s, border 0.18s, box-shadow 0.18s;
-            box-shadow: none;
-            user-select: none;
-        }
-        .btn-modern:hover {
-            background: #f5f5f5;
-            color: #2193b0;
-            border-color: #2193b0;
-        }
-        .btn-modern svg {
-            flex-shrink: 0;
-        }
-        .textbox-speed-controls {
-            position: absolute;
-            top: 16px;
-            right: 24px;
-            display: flex;
-            gap: 10px;
-            z-index: 2;
-        }
-        .language-controls {
-            position: absolute;
-            top: 20px;
-            right: 120px;
-            z-index: 1002;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .language-select {
-            padding: 6px 12px;
-            border: 1.5px solid #222;
-            border-radius: 20px;
-            background: #fff;
-            color: #222;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            outline: none;
-            transition: all 0.2s;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            background-size: 16px;
-            padding-right: 32px;
-        }
-        .language-select:hover {
-            background-color: #f5f5f5;
-            border-color: #2193b0;
-            color: #2193b0;
-        }
-        .language-select:focus {
-            border-color: #2193b0;
-            box-shadow: 0 0 0 2px rgba(33,147,176,0.2);
-        }
-        .speed-btn {
-            width: 32px;
-            height: 32px;
-            border: none;
-            border-radius: 50%;
-            background: #f5f5f5;
-            color: #2193b0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.18s, box-shadow 0.18s;
-            box-shadow: 0 1px 4px 0 rgba(33,147,176,0.08);
-            font-size: 1.1em;
-            outline: none;
-            padding: 0;
-        }
-        .speed-btn:hover {
-            background: #e0f7fa;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="social-icons">
@@ -288,17 +17,16 @@
         <a href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" target="_blank" title="Steam">
             <img src="steam.svg" width="28" height="28" alt="Steam" />
         </a>
-    </div>
-    <div class="language-controls">
-        <select id="lang-select" class="language-select">
-            <option value="zh">中文</option>
-            <option value="en">English</option>
-        </select>
+        <div class="language-controls">
+            <select id="lang-select" class="language-select">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+            </select>
+        </div>
     </div>
     <div class="container">
-        <h1>"Monika Is Not Real"</h1>
-        <p>(Model & site by Gwern Branwen.)</p>
-        <p>NEWEST &rarr; This Anime Does Not Exist</p>
+        <h1 id="main-title">"Monika Is Not Real"</h1>
+        <p id="model-site-info"></p>
 
         <div class="flex-container">
             <div class="image-container">
@@ -324,15 +52,42 @@
         <div class="button-row">
             <button id="refresh-btn" class="btn-modern">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.65 6.35A7.95 7.95 0 0 0 10 2V0L6 4l4 4V6c3.31 0 6 2.69 6 6a6 6 0 0 1-6 6 6 6 0 0 1-5.65-4H2.26A8 8 0 1 0 18 10c0-1.08-.19-2.12-.54-3.08l.19-.57z" fill="#222"/></svg>
-                刷新
+                <span id="refresh-btn-text">刷新</span>
             </button>
+        </div>
+        <div class="project-star-info" id="project-star-container">
         </div>
     </div>
 
-    <script>
-        let imageList = [
-            '10.webp', '11.webp', '12.jpeg', '13.jpeg', '14.jpeg', '15.jpeg',
-            '16.jpeg', '17.jpeg', '18.jpeg', '19.webp', '20.webp', '21.webp'
+    <script type="module">
+        import { translate, translateContent } from './translate.js';
+        
+        const imageList = [
+            '1ad2cf11027c41d3e7171f9121a4f42f.jpg',
+            '3fe29927b25a9e0173b7290ef1fead4a.jpg',
+            '4413654a18009fd07f38355eb9d8e9c4.jpg',
+            '571b816b7644205c9a67d2718dd44e4c.jpg',
+            '63e5d743b1c32eeb485e704e270cb786.jpg',
+            '98bf2d720e7101223eb2d8da3f80ec80.jpg',
+            '1012d247824337182a6295e1116a306a.jpg',
+            '0726b42a-1d02-4726-bcb9-94b5bf4f8759.jfif',
+            '4bc53175-a4d2-4a33-bad5-a955d34d35d8.jfif',
+            'f9f6a597-cf67-49ec-8acd-ec6c279b59cb.jfif',
+            '1.jfif',
+            '2.jfif',
+            '4d8e4-3489324567.jpeg',
+            '7171f-1567402233.jpeg',
+            '10.webp',
+            '11.webp',
+            '12.webp',
+            '13.jpeg',
+            '14.jpeg',
+            '16.jpeg',
+            '17.jpeg',
+            '18.jpeg',
+            '28.jpeg',
+            '30.webp',
+            '31.jpeg'
         ];
         let fragments = [];
         let currentIndex = 0;
@@ -341,34 +96,151 @@
         let switchTimer = null;
         let currentLang = 'zh';
         const textBox = document.querySelector('.text-box');
+        console.log('textBox 元素:', textBox);
+        
         const refreshBtn = document.getElementById('refresh-btn');
         const minSpeed = 10;
         const maxSpeed = 500;
         const speedStep = 100;
-        let typingSpeed = 210;
+        let typingSpeed = 100;
         const speedUpBtn = document.getElementById('speed-up-btn');
         const speedDownBtn = document.getElementById('speed-down-btn');
         const langSelect = document.getElementById('lang-select');
 
+        // 确保元素存在
+        if (!textBox) {
+            console.error('textBox 元素未找到');
+        }
+        if (!refreshBtn) {
+            console.error('refreshBtn 元素未找到');
+        }
+        if (!speedUpBtn) {
+            console.error('speedUpBtn 元素未找到');
+        }
+        if (!speedDownBtn) {
+            console.error('speedDownBtn 元素未找到');
+        }
+        if (!langSelect) {
+            console.error('langSelect 元素未找到');
+        }
+
         console.log('图片列表加载完成，共', imageList.length, '张图片');
         console.log('图片列表内容:', imageList);
+
+        // 静态文本翻译对象
+        const staticTranslations = {
+            'main-title': {
+                'zh': '“莫妮卡是真实存在的”',
+                'en': '"Monika Is Real"'
+            },
+            'model-site-info': {
+                'zh': '在《心动文学俱乐部！》三周目时，玩家可以选择与莫妮卡共处一室并让她提出随机的讨论话题，这些话非常发人深省或充满智慧，展现了莫妮卡大部分之前无法被玩家发现的个性。我很喜欢这些话题，如果可以，我愿意永远留在这和莫妮卡聊天🤣，我把这些话题提取了出来并做成了这个网站，希望你能喜欢。（图片来自<a href="https://civitai.com/user/holostrawberry" target="_blank">holostrawberry</a>和<a href="https://www.pinterest.com" target="_blank">pinterest</a>请注意，话题标题仅为了方便列表，并非官方名称。）',
+                'en': 'In Act 3 of Doki Doki Literature Club!, players can choose to stay in a room with Monika and let her bring up random discussion topics. These conversations are usually very thought-provoking or insightful, revealing much of Monika\'s personality that players couldn\'t discover before. I really love these topics, and if I could, I would stay here forever chatting with Monika 🤣. I extracted these topics and created this website, hoping you\'ll enjoy it. (Images are from <a href="https://civitai.com/user/holostrawberry" target="_blank">holostrawberry</a> and <a href="https://www.pinterest.com" target="_blank">pinterest</a>. Please note that the topic names are for list convenience only and are not official names.)'
+            },
+            'speed-down-btn': {
+                'zh': '减速',
+                'en': 'Slow Down'
+            },
+            'speed-up-btn': {
+                'zh': '加速',
+                'en': 'Speed Up'
+            },
+            'refresh-btn-text': {
+                'zh': '刷新',
+                'en': 'Refresh'
+            },
+            'mute-btn-title': {
+                'zh': '静音/播放',
+                'en': 'Mute/Play'
+            },
+            'star-project-text': {
+                'zh': '如果喜欢这个项目，请给我一个小小的star <a href="https://github.com/jackyrwj/Monika" target="_blank" title="GitHub"><img src="github.svg" width="20" height="20" alt="GitHub" /></a>',
+                'en': 'If you like this project, please give it a little star <a href="https://github.com/jackyrwj/Monika" target="_blank" title="GitHub"><img src="github.svg" width="20" height="20" alt="GitHub" /></a>'
+            }
+        };
+
+        // 更新静态文本的函数
+        function updateStaticTexts() {
+            // 确保 currentLang 是一个有效的键
+            const effectiveLang = staticTranslations['main-title'][currentLang] ? currentLang : 'zh'; // 回退到 'zh'
+            console.log('updateStaticTexts called. Effective Language:', effectiveLang);
+
+            const mainTitleElement = document.getElementById('main-title');
+            if (mainTitleElement) {
+                mainTitleElement.textContent = staticTranslations['main-title'][effectiveLang];
+            } else {
+                console.error("Element with id 'main-title' not found.");
+            }
+
+            const modelSiteInfoElement = document.getElementById('model-site-info');
+            if (modelSiteInfoElement) {
+                modelSiteInfoElement.innerHTML = staticTranslations['model-site-info'][effectiveLang];
+            } else {
+                console.error("Element with id 'model-site-info' not found.");
+            }
+
+            const speedDownBtnElement = document.getElementById('speed-down-btn');
+            if (speedDownBtnElement) {
+                speedDownBtnElement.title = staticTranslations['speed-down-btn'][effectiveLang];
+            } else {
+                console.error("Element with id 'speed-down-btn' not found.");
+            }
+
+            const speedUpBtnElement = document.getElementById('speed-up-btn');
+            if (speedUpBtnElement) {
+                speedUpBtnElement.title = staticTranslations['speed-up-btn'][effectiveLang];
+            }
+            else {
+                console.error("Element with id 'speed-up-btn' not found.");
+            }
+
+            const refreshBtnElement = document.getElementById('refresh-btn-text');
+            if (refreshBtnElement) {
+                refreshBtnElement.textContent = staticTranslations['refresh-btn-text'][effectiveLang];
+            } else {
+                console.error("Element with id 'refresh-btn-text' not found.");
+            }
+
+            const muteBtnElement = document.getElementById('mute-btn');
+            if (muteBtnElement) {
+                muteBtnElement.title = staticTranslations['mute-btn-title'][effectiveLang];
+            } else {
+                console.error("Element with id 'mute-btn' not found.");
+            }
+            
+            const projectStarContainer = document.getElementById('project-star-container');
+            if (projectStarContainer) {
+                const htmlToSet = staticTranslations['star-project-text'][effectiveLang];
+                console.log('Setting project-star-container innerHTML to:', htmlToSet);
+                projectStarContainer.innerHTML = htmlToSet;
+            } else {
+                console.error("Element with id 'project-star-container' not found when updating static texts.");
+            }
+
+            // 更新页面title
+            document.title = staticTranslations['main-title'][effectiveLang];
+        }
 
         // 加载文本片段
         fetch('fragments.json')
             .then(res => {
+                console.log('开始加载 fragments.json');
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);
                 }
                 return res.json();
             })
             .then(data => {
+                console.log('成功加载 fragments.json');
                 if (!Array.isArray(data) || data.length === 0) {
                     throw new Error('文本片段为空或格式不正确');
                 }
                 fragments = data;
                 console.log('文本片段加载完成，共', fragments.length, '段');
                 console.log('第一段内容:', fragments[0]);
+                console.log('当前索引:', currentIndex);
                 showFragment(currentIndex);
+                updateStaticTexts(); // 在文本片段加载后更新静态文本
             })
             .catch(error => {
                 console.error('加载文本片段失败:', error);
@@ -388,53 +260,36 @@
         }
 
         function typeWriterText(fragment, element, callback) {
-            const lang = currentLang;
-            console.log('当前语言:', lang);
-            console.log('当前片段:', fragment);
+            console.log('typeWriterText 被调用');
+            console.log('element:', element);
+            console.log('fragment:', fragment);
             
-            // 检查片段是否包含必要的字段
             if (!fragment) {
                 console.error('片段为空');
                 return;
             }
-            
-            // 根据语言选择标题和内容
-            let title, lines;
-            if (lang === 'zh') {
-                title = fragment.title;
-                lines = fragment.content;
-            } else {
-                title = fragment.title_en;
-                lines = fragment.content_en;
+
+            if (!element) {
+                console.error('文本容器元素为空');
+                return;
             }
-            
-            // 检查标题和内容是否存在
-            if (!title || !lines) {
-                console.error('缺少必要的字段:', {
-                    title: title,
-                    lines: lines,
-                    fragment: fragment,
-                    lang: lang
-                });
-                // 如果缺少英文翻译，回退到中文
-                if (lang === 'en') {
-                    console.log('回退到中文显示');
-                    title = fragment.title;
-                    lines = fragment.content;
-                } else {
-                    return;
-                }
-            }
-            
+
+            const lang = currentLang;
+            const title = lang === 'zh' ? fragment.title : fragment.title_en;
+            const lines = lang === 'zh' ? fragment.content : fragment.content_en;
+
+            console.log('当前语言:', lang);
             console.log('标题:', title);
             console.log('内容:', lines);
-            
+
             let lineIndex = 0;
             let charIndex = 0;
             element.innerHTML = `<h2 class="typing-title">${title}</h2><div class="typing-content"></div>`;
             const contentElem = element.querySelector('.typing-content');
-            let finishedLines = [];
+            console.log('contentElem:', contentElem);
             
+            let finishedLines = [];
+
             function typeLine() {
                 if (lineIndex < lines.length) {
                     const currentLine = (lang === 'zh' ? '莫妮卡：' : 'Monika: ') + lines[lineIndex];
@@ -464,6 +319,10 @@
         }
 
         function showFragment(index) {
+            console.log('showFragment 被调用，索引:', index);
+            console.log('fragments 数组:', fragments);
+            console.log('textBox 元素:', textBox);
+            
             clearTimeout(typingTimer);
             clearTimeout(switchTimer);
 
@@ -490,8 +349,15 @@
 
             // 2. 然后再切换文字（打字动画）
             const fragment = fragments[index];
+            console.log('当前片段:', fragment);
             if (fragment) {
+                console.log('开始显示文字');
+                if (!textBox) {
+                    console.error('textBox 元素未找到');
+                    return;
+                }
                 typeWriterText(fragment, textBox, () => {
+                    console.log('文字显示完成');
                     switchTimer = setTimeout(() => {
                         nextFragment();
                     }, 50000);
@@ -533,6 +399,7 @@
             } else {
                 console.error('片段不存在:', currentIndex);
             }
+            updateStaticTexts(); // 语言切换时更新静态文本
         });
 
         // 设置初始语言
@@ -553,10 +420,16 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded 事件触发');
             tryPlay();
+            updateStaticTexts(); // 在页面加载完成后立即更新静态文本
         });
 
-        window.addEventListener('load', tryPlay);
+        window.addEventListener('load', function() {
+            console.log('load 事件触发');
+            tryPlay();
+            updateStaticTexts(); // 在页面完全加载后再次更新静态文本
+        });
 
         muteBtn.onclick = function() {
             isMuted = !isMuted;
@@ -585,6 +458,22 @@
             updateSpeedIndicator();
         });
         updateSpeedIndicator();
+
+        function loadImage() {
+            const img = document.querySelector('.image-container img');
+            const imagePath = imageList[currentImageIndex];
+            // 如果路径已经包含 images/ 前缀，则直接使用；否则添加前缀
+            img.src = imagePath.startsWith('images/') ? imagePath : `images/${imagePath}`;
+            img.onload = () => {
+                console.log('图片加载成功:', img.src);
+            };
+            img.onerror = () => {
+                console.error('图片加载失败:', img.src);
+                // 如果加载失败，尝试下一个图片
+                currentImageIndex = (currentImageIndex + 1) % imageList.length;
+                loadImage();
+            };
+        }
     </script>
 </body>
 </html> 
