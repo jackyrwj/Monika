@@ -308,13 +308,15 @@ button {
     word-wrap: break-word;
     white-space: normal;
     text-align: left;
-    padding: 0 20px;
-    text-indent: 2em;
+    padding: 0 20px 0 2em;
+    word-spacing: 0;
+    letter-spacing: 0;
 }
 
 #model-site-info a {
     display: inline;
     margin: 0 2px;
+    margin-left: -4px;
 }
 
 .project-star-info {
